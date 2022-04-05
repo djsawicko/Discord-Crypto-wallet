@@ -337,7 +337,7 @@ async def send(ctx, amount, to_address, otp_input=0):
             response = requests.post(RPChost+'wallet/'+str(WalletName), headers=headers, data=data, auth=(RPCuser, RPCpass))
             json = response.json()
             if json["error"] == None:
-                embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + " TX ID: " + str(json["result"]) +  + str(" [explorer](https://explorer.powx.org/tx/" + str(json[0]["txid"]) + str(")") ))
+                embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + " TX ID: " + str(json["result"]) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") ))
                 embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
                 await ctx.reply(embed=embed)
                 embed.clear_fields()
@@ -413,7 +413,7 @@ async def send(ctx, amount, to_address, otp_input=0):
         json = response.json() 
 
         if json["error"] == None:
-            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + " TX ID: " + str(json["result"]) +  + str(" [explorer](https://explorer.powx.org/tx/" + str(json[0]["txid"]) + str(")") ))
+            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + " TX ID: " + str(json["result"]) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") ))
             embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
             await ctx.reply(embed=embed)
             embed.clear_fields()
