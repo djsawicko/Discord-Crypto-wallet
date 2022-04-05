@@ -17,3 +17,9 @@ Hello! This is a discord crypto wallet!
 3. Change RPC password/username/host in the ``bot.py`` file
 4. Test it out ussing slash commands (Be sure to see if you can recieve funds and enable 2FA)
 5. Enjoy!
+
+
+**Maintaning the bot:**
+1. If you get a undefined error report from a user or if you see one in the terminal please report it to me, and I'll push a fix!
+2. Update the bot regularly!
+3. Please post suggestions, bug fixes, bug reports and etc in issues!
