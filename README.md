@@ -10,3 +10,10 @@ Hello! This is a discord crypto wallet!
 | JSON RPC error handling  | ✅  |
 | Multiple wallets per users  | ❌  |
 
+
+**Setup:**
+1. Paste your discord bot token into the ``DiscordToken``file
+2. Get the ``serviceAccountKey.json`` file from google FireStore, (guide)[https://clemfournier.medium.com/how-to-get-my-firebase-service-account-key-file-f0ec97a21620]
+3. Change RPC password/username/host in the ``bot.py`` file
+4. Test it out ussing slash commands (Be sure to see if you can recieve funds and enable 2FA)
+5. Enjoy!
