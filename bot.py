@@ -21,7 +21,7 @@ import requests, decimal, json, discord, os, hashlib, time, pyotp, firebase_admi
 
 #FireStore collections, no need to change this
 Collection='2FA'
-tempCollection='2FA'
+tempCollection='temp_2FA'
 
 
 #Discord auth token
@@ -314,7 +314,13 @@ async def verify(ctx, otp_input:int):
             await ctx.reply(embed=embed)
             embed.clear_fields()
             embed.remove_author()
-
+        
+    if not temp_doc.exists and not doc.exists:
+        embed.add_field(name='Error!', value="Please run ``" + prefix + "enable2fa`` first!")
+        embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
+        await ctx.reply(embed=embed)
+        embed.clear_fields()
+        embed.remove_author()
 
 
 
