@@ -419,7 +419,7 @@ async def send(ctx, amount, to_address, otp_input=0):
         json = response.json() 
 
         if json["error"] == None:
-            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + " TX ID: " + str(json["result"]) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") ))
+            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") + " TX ID: " + "\n" + str(json["result"])  ))
             embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
             await ctx.reply(embed=embed)
             embed.clear_fields()
