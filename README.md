@@ -31,3 +31,9 @@ I have currently set it up to work with Optical Bitcoin [oBTC], you may test it 
 
 **Images:**
 ![image](https://user-images.githubusercontent.com/75716744/161784742-f2638d60-99c6-46d8-91cb-2c421b031dfe.png)
+
+
+**Other things:**
+The discord token I put in is invalid
+
+ID is being turned into MD5 not because of security
