@@ -28,7 +28,7 @@ I have currently set it up to work with Optical Bitcoin [oBTC], you may test it 
 ![image](https://user-images.githubusercontent.com/75716744/161784742-f2638d60-99c6-46d8-91cb-2c421b031dfe.png)
 
 
-**Special thanks to:**
+**Special thanks to:**  
 @nooby-xviii for helping me with vars lol
 treyzania from cryptodevs discord for helping me out with RPC
 
