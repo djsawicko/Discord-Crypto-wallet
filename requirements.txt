@@ -1,0 +1,6 @@
+discord.py
+discord_py_interactions
+firebase_admin
+pyotp
+qrcode
+requests
