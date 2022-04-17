@@ -29,7 +29,7 @@ I have currently set it up to work with Optical Bitcoin [oBTC], you may test it 
 
 
 **Special thanks to:**
-@nooby xviii for helping me with vars lol
+@nooby-xviii for helping me with vars lol
 treyzania from cryptodevs discord for helping me out with RPC
 
 **Other things:**
