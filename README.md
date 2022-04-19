@@ -1,7 +1,6 @@
 # Discord-Crypto-wallet
 
-## **Setup:**
-[Full guide](https://github.com/the-red-eye-studio/Discord-Crypto-wallet/wiki)
+### [Setup](https://github.com/the-red-eye-studio/Discord-Crypto-wallet/wiki/Setup)
 
 **Pros and cons:**
 | Feature  | Exists |
@@ -11,8 +10,6 @@
 | JSON RPC error handling  | ✅  |
 | Multiple wallets per users  | ❌  |
 
-**Setup:**
-[Full guide](https://github.com/the-red-eye-studio/Discord-Crypto-wallet/wiki)
 
 
 **Maintaning the bot:**  
