@@ -37,3 +37,5 @@ treyzania from cryptodevs discord for helping me out with RPC
 The discord token I put in is invalid
 
 ID is being turned into MD5 not because of security
+
+The 2FA QR code and secret are no longer valid
