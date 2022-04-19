@@ -29,13 +29,13 @@ I have currently set it up to work with Optical Bitcoin [oBTC], you may test it 
 
 
 **Special thanks to:**  
-@nooby-xviii for helping me with vars lol
-treyzania from cryptodevs discord for helping me out with RPC
+@nooby-xviii for helping me with vars lol  
+treyzania from cryptodevs discord for helping me out with RPC  
 
 **Other things:**
 
-The discord token I put in is invalid
+The discord token I put in is invalid  
 
-ID is being turned into MD5 not because of security
+ID is being turned into MD5 not because of security  
 
-The 2FA QR code and secret are no longer valid
+The 2FA QR code and secret are no longer valid  
