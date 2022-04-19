@@ -3,14 +3,18 @@ RPChost = 'http://127.0.0.1:8332/'
 RPCuser = 'username'
 RPCpass = 'password'
 
+explorer = 'https://explorer.powx.org/tx/'
+
 Cointicker = 'oBTC'
 
 Contact = "@The Red Eye Studio#8319"
 
-prefix = '/'
+
 
 
 #ADVANCED SECTION, you may keep this as is
+
+prefix = '/'
 
 #Imports
 from datetime import datetime
@@ -209,8 +213,8 @@ async def list_transactions(ctx, tx_asked:int=10):
                     json = json["result"]
 
                     if not lastTX==str(json[0]["txid"]):
-                        if (json[0]["category"]=='receive'): embed.add_field(name=f"You received " + str(decimal.Decimal(str(json[0]["amount"]))).replace('+', '') + str(" ") + str(Cointicker) + str(" at: ") +str(str(datetime.utcfromtimestamp(int(json[0]["time"])))), value=(f" **From address:** " + str(json[0]["address"]) + str(" [explorer](https://explorer.powx.org/tx/" + str(json[0]["txid"]) + str(")")) + "\n **Confirmations:** " +str(json[0]["confirmations"])), inline=False); lastTX=str(json[0]["txid"])
-                        if (json[0]["category"]=='send'): embed.add_field(name=f"You sent: " + str(decimal.Decimal(str(json[0]["amount"]))).replace('-', '') + str(" ") + str(Cointicker) + str(" at: ") +str(str(datetime.utcfromtimestamp(int(json[0]["time"])))) , value=(f" **To address:** " + str(json[0]["address"]) + str(" [explorer](https://explorer.powx.org/tx/" + str(json[0]["txid"]) + str(")" + "\n **Confirmations:** " +str(json[0]["confirmations"])))), inline=False);        lastTX=str(json[0]["txid"])
+                        if (json[0]["category"]=='receive'): embed.add_field(name=f"You received " + str(decimal.Decimal(str(json[0]["amount"]))).replace('+', '') + str(" ") + str(Cointicker) + str(" at: ") +str(str(datetime.utcfromtimestamp(int(json[0]["time"])))), value=(f" **From address:** " + str(json[0]["address"]) + str(" [explorer]" + explorer + str(json[0]["txid"]) + str(")")) + "\n **Confirmations:** " +str(json[0]["confirmations"])), inline=False); lastTX=str(json[0]["txid"])
+                        if (json[0]["category"]=='send'): embed.add_field(name=f"You sent: " + str(decimal.Decimal(str(json[0]["amount"]))).replace('-', '') + str(" ") + str(Cointicker) + str(" at: ") +str(str(datetime.utcfromtimestamp(int(json[0]["time"])))) , value=(f" **To address:** " + str(json[0]["address"]) + str(" [explorer](" + explorer + str(json[0]["txid"]) + str(")" + "\n **Confirmations:** " +str(json[0]["confirmations"])))), inline=False);        lastTX=str(json[0]["txid"])
                 embed.set_author(name=str(ctx.author) + "'s", icon_url=(ctx.author).avatar_url)
                 await ctx.reply(embed=embed)
                 embed.clear_fields()
@@ -343,7 +347,7 @@ async def send(ctx, amount, to_address, otp_input=0):
             response = requests.post(RPChost+'wallet/'+str(WalletName), headers=headers, data=data, auth=(RPCuser, RPCpass))
             json = response.json()
             if json["error"] == None:
-                embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") + " TX ID: " + "\n" + str(json["result"])  ))
+                embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + str(" [explorer](" + explorer + str(json["result"]) + str(")") + " TX ID: " + "\n" + str(json["result"])  ))
                 embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
                 await ctx.reply(embed=embed)
                 embed.clear_fields()
@@ -419,7 +423,7 @@ async def send(ctx, amount, to_address, otp_input=0):
         json = response.json() 
 
         if json["error"] == None:
-            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + str(" [explorer](https://explorer.powx.org/tx/" + str(json["result"]) + str(")") + " TX ID: " + "\n" + str(json["result"])  ))
+            embed.add_field(name='Success!', value='You sucsessfully sent '+str(amount) + " " +Cointicker + ' to: ' + str(to_address) + str(" [explorer](" + explorer + str(json["result"]) + str(")") + " TX ID: " + "\n" + str(json["result"])  ))
             embed.set_author(name=str(ctx.author), icon_url=(ctx.author).avatar_url)
             await ctx.reply(embed=embed)
             embed.clear_fields()
