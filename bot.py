@@ -39,7 +39,7 @@ qr = qrcode.QRCode(
         border=5)
 
 #Bot stuff
-bot = commands.Bot(command_prefix=prefix, intents=discord.Intents.all())
+bot = commands.Bot(command_prefix=prefix)
 embed=discord.Embed()
 slash=SlashCommand(bot, sync_commands=True)
 
@@ -67,6 +67,10 @@ async def on_ready():
 # creation of wallet
 @slash.slash(description='create your wallet')
 async def create(ctx):
+        await ctx.defer()
+        embed.clear_fields()
+        embed.remove_author()
+        
         user = ctx.author.id
         WalletName = hashlib.md5(str(user).encode('utf-8')).hexdigest() #turn ID into MD5 (not for security)
         data = '{"jsonrpc": "1.0", "id": "curltest", "method": "createwallet", "params": ["'+str(WalletName) +'"]}' #RPC Data to be sent
@@ -105,6 +109,10 @@ async def create(ctx):
 # wallet ballace
 @slash.slash(description="shows your balance")
 async def balance(ctx):
+    await ctx.defer()
+    embed.clear_fields()
+    embed.remove_author()
+
     user = ctx.author.id
     WalletName = hashlib.md5(str(user).encode('utf-8')).hexdigest()
     data = '{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": [] }'
@@ -141,6 +149,10 @@ async def balance(ctx):
 # receive funds
 @slash.slash(description='get an address')
 async def receive(ctx):
+    await ctx.defer()
+    embed.clear_fields()
+    embed.remove_author()
+
     user = ctx.author.id 
     WalletName = hashlib.md5(str(user).encode('utf-8')).hexdigest()
     data = '{"jsonrpc": "1.0", "id": "curltest", "method": "getnewaddress", "params": []}' 
@@ -179,6 +191,10 @@ async def receive(ctx):
 # list transactions
 @slash.slash(description='list transactions')
 async def list_transactions(ctx, tx_asked:int=10):
+        await ctx.defer()
+        embed.clear_fields()
+        embed.remove_author()
+       
         ValueError=False
         if(tx_asked==0): await ctx.reply('https://tenor.com/view/house-explosion-explode-boom-kaboom-gif-19506150'); ValueError=True
 
@@ -235,6 +251,10 @@ async def list_transactions(ctx, tx_asked:int=10):
 #Enable 2FA
 @slash.slash(description='enable 2fa')
 async def enable2fa(ctx):
+    await ctx.defer()
+    embed.clear_fields()
+    embed.remove_author()
+
     doc_ref = db.collection(Collection).document(str(ctx.author.id))
     doc = doc_ref.get()
 
@@ -277,6 +297,10 @@ async def enable2fa(ctx):
 # verify 2FA
 @slash.slash(description='Verify that you have setup 2FA successfully')
 async def verify(ctx, otp_input:int):
+    await ctx.defer()
+    embed.clear_fields()
+    embed.remove_author()
+
     doc_ref = db.collection(Collection).document(str(ctx.author.id))
     doc = doc_ref.get()
 
@@ -332,6 +356,9 @@ async def verify(ctx, otp_input:int):
 # send a transaction
 @slash.slash(description='Send a Transaction')
 async def send(ctx, amount, to_address, otp_input=0):
+    await ctx.defer()
+    embed.clear_fields()
+    embed.remove_author()
     
     doc_ref = db.collection(Collection).document(str(ctx.author.id))
     doc = doc_ref.get()
