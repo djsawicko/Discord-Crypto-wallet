@@ -1,4 +1,4 @@
-# Discord-Crypto-wallet
+# Discord-Crypto-wallet (OBSELETE, UNSECURE)
 
 ### [Setup](https://github.com/the-red-eye-studio/Discord-Crypto-wallet/wiki/Setup)
 
